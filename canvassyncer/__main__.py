@@ -302,7 +302,7 @@ class CanvasSyncer:
                                     f"{self.courseCode[courseID]}{fileName}")
             path = path.replace('\\', '/').replace('//', '/')
             if fileName in localFiles:
-                localCreatedTimeStamp = int(os.path.getctime(path))
+                localCreatedTimeStamp = int(os.path.getmtime(path))
                 if fileModifiedTimeStamp <= localCreatedTimeStamp:
                     continue
                 response = self.sessHead(fileUrl)
